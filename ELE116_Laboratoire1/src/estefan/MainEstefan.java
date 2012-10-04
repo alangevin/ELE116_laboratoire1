@@ -9,7 +9,7 @@ public class MainEstefan {
 		Carre square = new Carre();
 		Oval roundy = new Oval();
 		Rectangle rect = new Rectangle();
-		Ligne line = new Ligne();
+		Ligne lines = new Ligne();
 		
 	}
 
