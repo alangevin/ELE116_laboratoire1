@@ -12,6 +12,7 @@ public class PanneauControl extends JPanel{
 	public Bouton deconnect = null;
 	public BoiteTexte adresseIp = null;
 	public BoiteTexte port = null;
+	public Reception boucleReception = null;
 	
 	public PanneauControl() {
 		this(0, 0, 700, 100);
@@ -45,6 +46,7 @@ public class PanneauControl extends JPanel{
 		connect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				server = new Communication(adresseIp.getText(), Integer.valueOf(port.getText()));
+				boucleReception = new Reception(server);
 				connect.setEnabled(false);
 				deconnect.setEnabled(true);
 			}

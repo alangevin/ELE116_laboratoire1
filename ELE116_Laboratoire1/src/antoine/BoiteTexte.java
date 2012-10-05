@@ -11,21 +11,4 @@ public class BoiteTexte extends JTextField{
 		super.setVisible(true);
 		super.setEnabled(true);
 	}
-	
-	/*public String getText() {
-		String text = null;
-		
-		try {
-			text = this.getText(0, 15);
-		} catch (BadLocationException e) {
-			e.printStackTrace();
-		} finally {
-				if(text != null) {
-					return text;
-				}
-				else {
-					return "";
-				}
-		}
-	}*/
 }
