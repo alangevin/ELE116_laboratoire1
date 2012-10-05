@@ -31,6 +31,7 @@ public class PanneauControl extends JPanel{
 		Texte adresseIpLabel = new Texte("AddL", "Adresse IP : ", 20, 20, 100, 20);
 		Texte portLabel = new Texte("PortL", "Port : ", 20, 43, 100, 20);
 		
+		
 		adresseIp.setText("127.0.0.1");
 		port.setText("10000");
 		
@@ -46,17 +47,20 @@ public class PanneauControl extends JPanel{
 		connect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				server = new Communication(adresseIp.getText(), Integer.valueOf(port.getText()));
-				boucleReception = new Reception(server);
 				connect.setEnabled(false);
 				deconnect.setEnabled(true);
+				boucleReception = new Reception(server);
+				boucleReception.start();
 			}
 		});
 		
 		deconnect.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				server.CloseCommunication();
 				connect.setEnabled(true);
 				deconnect.setEnabled(false);
+				boucleReception.stop();
 			}
 		});
 	}
