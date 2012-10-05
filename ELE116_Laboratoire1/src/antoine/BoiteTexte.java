@@ -12,7 +12,7 @@ public class BoiteTexte extends JTextField{
 		super.setEnabled(true);
 	}
 	
-	public String getText() {
+	/*public String getText() {
 		String text = null;
 		
 		try {
@@ -27,5 +27,5 @@ public class BoiteTexte extends JTextField{
 					return "";
 				}
 		}
-	}
+	}*/
 }

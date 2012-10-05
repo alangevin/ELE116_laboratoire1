@@ -7,6 +7,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 public class PanneauControl extends JPanel{
+	public Communication server = null;
+	public Bouton connect = null;
+	public Bouton deconnect = null;
+	public BoiteTexte adresseIp = null;
+	public BoiteTexte port = null;
+	
 	public PanneauControl() {
 		this(0, 0, 700, 100);
 	}
@@ -17,12 +23,17 @@ public class PanneauControl extends JPanel{
 		super.setVisible(true);
 		super.setLayout(null);
 		
-		Bouton connect = new Bouton("BConnect", "Connexion", 580, 60, 100, 20);
-		Bouton deconnect = new Bouton("BConnect", "DŽconnexion", 460, 60, 100, 20);
-		final BoiteTexte adresseIp = new BoiteTexte("AIp", 100, 20, 100, 20);
-		BoiteTexte port = new BoiteTexte("Port", 100, 43, 100, 20);
+		connect = new Bouton("BConnect", "Connexion", 580, 60, 100, 20);
+		deconnect = new Bouton("BConnect", "Deconnexion", 450, 60, 110, 20);
+		adresseIp = new BoiteTexte("AIp", 100, 20, 100, 20);
+		port = new BoiteTexte("Port", 100, 43, 100, 20);
 		Texte adresseIpLabel = new Texte("AddL", "Adresse IP : ", 20, 20, 100, 20);
 		Texte portLabel = new Texte("PortL", "Port : ", 20, 43, 100, 20);
+		
+		adresseIp.setText("127.0.0.1");
+		port.setText("10000");
+		
+		deconnect.setEnabled(false);
 		
 		super.add(connect);
 		super.add(deconnect);
@@ -33,7 +44,17 @@ public class PanneauControl extends JPanel{
 		
 		connect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Communication server = new Communication("127.0.0.1", 10000);
+				server = new Communication(adresseIp.getText(), Integer.valueOf(port.getText()));
+				connect.setEnabled(false);
+				deconnect.setEnabled(true);
+			}
+		});
+		
+		deconnect.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				server.CloseCommunication();
+				connect.setEnabled(true);
+				deconnect.setEnabled(false);
 			}
 		});
 	}

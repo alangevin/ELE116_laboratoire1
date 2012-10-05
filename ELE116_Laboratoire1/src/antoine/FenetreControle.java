@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 public class FenetreControle extends JFrame {
 	
 	public FenetreControle() {
-		this("DŽfaut", 500, 500);
+		this("Defaut", 500, 500);
 	}
 	
 	public FenetreControle(String titre, int width, int height) {

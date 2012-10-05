@@ -25,23 +25,13 @@ public class Communication {
 			dout = new PrintWriter(socketClient.getOutputStream(), true);
 			din = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
 			
-			System.out.println("Connexion à " + adresseIP + ":" + port);
+			System.out.println("Connexion a " + adresseIP + ":" + port);
 			
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-			System.out.println("Connexion échouée");
-		} finally {
-			try {
-				din.close();
-				dout.close();
-				socketClient.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-			System.out.println("Connexion échouée");
+			System.out.println("Connexion echouee");
 		}
 	}
 	
@@ -67,6 +57,7 @@ public class Communication {
 	public void CloseCommunication() {
 		dout.println("END");
 		
+		System.out.println("Deconnexion du serveur");
 		try {
 			din.close();
 			dout.close();
