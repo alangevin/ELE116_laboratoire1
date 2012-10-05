@@ -22,17 +22,15 @@ public class Communication {
 		try {
 			socketClient = new Socket(adresseIP, port);
 			
-			System.out.println("Connexion à " + adresseIP + ":" + port);
-			
 			dout = new PrintWriter(socketClient.getOutputStream(), true);
 			din = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
+			
+			System.out.println("Connexion à " + adresseIP + ":" + port);
 			
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-			System.out.println("Connexion échouée");
-		} catch (Exception e) {
 			System.out.println("Connexion échouée");
 		} finally {
 			try {
