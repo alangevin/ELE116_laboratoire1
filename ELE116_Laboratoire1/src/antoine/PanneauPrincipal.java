@@ -17,7 +17,9 @@ public class PanneauPrincipal extends JPanel {
 		super.setLayout(null);
 		
 		PanneauControl paneControl = new PanneauControl(0, 0, 700, 100);
+		PanneauLog paneLog = new PanneauLog();
 		
 		this.add(paneControl);
+		this.add(paneLog);
 	}
 }

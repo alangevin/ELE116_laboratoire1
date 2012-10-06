@@ -20,7 +20,7 @@ public class PanneauControl extends JPanel{
 	
 	public PanneauControl(int x, int y, int width, int height) {
 		super.setBounds(x, y, width, height);
-		super.setBackground(Color.CYAN);
+		super.setBackground(Color.RED);
 		super.setVisible(true);
 		super.setLayout(null);
 		
