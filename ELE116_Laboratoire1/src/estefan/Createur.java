@@ -32,42 +32,51 @@ public class Createur {
 		Forme forme1 =  null;
 		
 		 StringTokenizer str = new StringTokenizer(forme);
+		 socket = new String[str.countTokens()];
 		 
 	     while (str.hasMoreTokens()) {
-	    	 i++;
 	         
 	         socket[i]= str.nextToken();
-	        
+	         i++;
 	         
 	     }
 	 
        
-      	 registre = Integer.parseInt( socket [1]);
+      	 registre = Integer.parseInt( socket [0]);
         	 
-	     if (socket[2]== "<CARRE>")
+	     if (socket[1].equals("<CARRE>"))
 	     {
-	    	forme1= new Carre(Integer.parseInt( socket [3]),Integer.parseInt( socket [4]),Integer.parseInt( socket [5]),Integer.parseInt( socket [6])); 
+	    	forme1= new Carre(Integer.parseInt( socket [2]),Integer.parseInt( socket [3]),Integer.parseInt( socket [4]),Integer.parseInt( socket [5])); 
+	    	System.out.println("Creation de carre");	
 	     }
-	     else if (socket[2]== "<RECTANGLE>")
-	     {
-	    	forme1= new Rectangle(Integer.parseInt( socket [3]),Integer.parseInt( socket [4]),Integer.parseInt( socket [5]),Integer.parseInt( socket [6]));
-	     }
-	     else if (socket[2]== "<CERCLE>")
-	     {
-	    	forme1= new Cercle(Integer.parseInt( socket [3]),Integer.parseInt( socket [4]),Integer.parseInt( socket [5]));
-	     }
-	     else if (socket[2]== "<OVAL>")
-	     {
-	    	 forme1= new Oval(Integer.parseInt( socket [3]),Integer.parseInt( socket [4]),Integer.parseInt( socket [5]),Integer.parseInt( socket [6]));
 	     
-	     }  else if (socket[2]== "<LIGNE>")
+	     else if (socket[1].equals("<RECTANGLE>"))
 	     {
-	    	 forme1= new Ligne(Integer.parseInt( socket [3]),Integer.parseInt( socket [4]),Integer.parseInt( socket [5]),Integer.parseInt( socket [6]));
-	      
+	    	forme1= new Rectangle(Integer.parseInt( socket [2]),Integer.parseInt( socket [3]),Integer.parseInt( socket [4]),Integer.parseInt( socket [5]));
+	    	System.out.println("Creation de rectangle");
 	     }
+	     
+	     else if (socket[1].equals("<CERCLE>"))
+	     {
+	    	forme1= new Cercle(Integer.parseInt( socket [2]),Integer.parseInt( socket [3]),Integer.parseInt( socket [4]));
+	    	System.out.println("Creation de cercle");
+	     }
+	     
+	     else if (socket[1].equals("<OVAL>"))
+	     {
+	    	 forme1= new Oval(Integer.parseInt( socket [2]),Integer.parseInt( socket [3]),Integer.parseInt( socket [4]),Integer.parseInt( socket [5]));
+	    	 System.out.println("Creation de oval");
+	     }  else if (socket[1].equals("<LIGNE>"))
+	     {
+	    	 forme1= new Ligne(Integer.parseInt( socket [2]),Integer.parseInt( socket [3]),Integer.parseInt( socket [4]),Integer.parseInt( socket [5]));
+	    	 System.out.println("Creation de ligne");
+	     }
+
 	     else {i=0;}
            
-                  	
+	
+	     
+	     
       return forme1;
       
 		

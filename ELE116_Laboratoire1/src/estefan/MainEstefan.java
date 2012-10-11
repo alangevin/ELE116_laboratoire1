@@ -10,9 +10,14 @@ public class MainEstefan {
 		Oval roundy = new Oval();
 		Rectangle rect = new Rectangle();
 		Ligne lines = new Ligne();
-		String test = "10 <CARRE> 15 15 65 76 </CARRE> ";
+		String test = "10 <CERCLE> 15 15 65 76 </LIGNE> ";
 		
-		Createur.getForme(test);
+		Forme formerecu = Createur.getForme(test);
+		
+		formerecu.dessine();
+		
+		
+		
 		
 		
 		

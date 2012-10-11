@@ -15,6 +15,8 @@ public class Carre extends Forme{
 	}
 	
 	public Carre(int pX1, int pY1,int pX2, int pY2 ) {
+		super.type= "Carre";
+		
 		x1 = pX1;
 		y1 = pY1;
 		x2 = pX2;
@@ -31,6 +33,7 @@ public class Carre extends Forme{
 	
 	public void dessine() {
 		
+		System.out.println("ssad");
 		
 	}
 	

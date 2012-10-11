@@ -3,17 +3,13 @@ package estefan;
 public abstract class Forme {
 	
 	public int formes [];
-	
-public void Forme(){
-	
+	private int x1;
+	private int y1;
+	private int x2;
+	private int y2;
+	protected String type;
 
-	
-}
-	public abstract void dessine();
 
-	
-
-	
-	
+public void dessine(){}
 
 }
