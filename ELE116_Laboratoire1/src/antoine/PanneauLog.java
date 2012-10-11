@@ -11,5 +11,11 @@ public class PanneauLog extends JPanel {
 		super.setBackground(Color.BLUE);
 		super.setLayout(null);
 		super.setVisible(true);
+		
+		ZoneTexte logConsole = new ZoneTexte(0, 10, 10, 680, 560);
+		
+		TextAreaOutputStream taos = TextAreaOutputStream.getInstance(logConsole);
+		
+		super.add(logConsole);
 	}
 }

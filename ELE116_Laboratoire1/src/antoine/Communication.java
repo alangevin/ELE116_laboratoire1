@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ConnectException;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketAddress;
 import java.net.UnknownHostException;
 
 public class Communication {
@@ -20,18 +22,27 @@ public class Communication {
 	
 	public Communication(String adresseIP, int port) {
 		try {
-			socketClient = new Socket(adresseIP, port);
+			SocketAddress add = new InetSocketAddress(adresseIP, port);
 			
-			dout = new PrintWriter(socketClient.getOutputStream(), true);
-			din = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
+			socketClient = new Socket();
+			socketClient.connect(add, 1000);
 			
-			System.out.println("Connexion a " + adresseIP + ":" + port);
+			if(socketClient.isConnected()) {
+				dout = new PrintWriter(socketClient.getOutputStream(), true);
+				din = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
+				System.out.println("Connexion a " + adresseIP + ":" + port);
+			}
 			
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-			System.out.println("Connexion echouee");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(!socketClient.isConnected()) {
+				System.out.println("Connexion a " + adresseIP + ":" + port + " Failed");
+			}
 		}
 	}
 	
@@ -65,5 +76,15 @@ public class Communication {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public boolean isConnected() {
+		boolean b = false;
+		
+		if(socketClient.isConnected()) {
+			b = true;
+		}
+		
+		return b;
 	}
 }
