@@ -14,10 +14,19 @@ public class FenetreControle extends JFrame {
 		super.setVisible(true);
 		super.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		super.setLayout(null);
+		super.setResizable(false);
 		
 		PanneauPrincipal panePrincipal = new PanneauPrincipal(0, 0, 700, 700);
 		
 		super.setContentPane(panePrincipal);
 		
+	}
+	
+	public int getCoorX() {
+		return this.getX();
+	}
+	
+	public int getCoorY() {
+		return this.getY();
 	}
 }

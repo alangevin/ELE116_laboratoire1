@@ -47,10 +47,12 @@ public class PanneauControl extends JPanel{
 		connect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				server = new Communication(adresseIp.getText(), Integer.valueOf(port.getText()));
-				connect.setEnabled(false);
-				deconnect.setEnabled(true);
-				boucleReception = new Reception(server);
-				boucleReception.start();
+				if(server.isConnected()) {
+					connect.setEnabled(false);
+					deconnect.setEnabled(true);
+					boucleReception = new Reception(server);
+					boucleReception.start();
+				}
 			}
 		});
 		
