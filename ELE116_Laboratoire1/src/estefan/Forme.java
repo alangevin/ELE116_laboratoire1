@@ -2,12 +2,13 @@ package estefan;
 
 public abstract class Forme {
 	
-	int formes [];
+	public int formes [];
+	
+public void Forme(){
 	
 
 	
-	
-	
+}
 	public abstract void dessine();
 
 	

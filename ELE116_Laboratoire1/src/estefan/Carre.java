@@ -1,10 +1,11 @@
 package estefan;
 
 public class Carre extends Forme{
-	int x1;
-	int y1;
-	int x2;
-	int y2;
+
+	private int x1;
+	private int y1;
+	private int x2;
+	private int y2;
 	
 	public Carre() {
 		x1 = 0;

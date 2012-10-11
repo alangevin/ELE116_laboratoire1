@@ -12,11 +12,12 @@ public class MainEstefan {
 		Ligne lines = new Ligne();
 		String test = "10 <CARRE> 15 15 65 76 </CARRE> ";
 		
+		Createur.getForme(test);
 		
 		
-		Createur.setCreateur(test);
 		
-		System.out.println(test);
+		
+		
 		
 		
 	}

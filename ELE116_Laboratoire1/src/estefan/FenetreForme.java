@@ -1,5 +1,5 @@
 package estefan;
 
-public class FenetreForme {
+public class FenetreForme  {
 
 }

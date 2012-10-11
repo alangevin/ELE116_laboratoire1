@@ -2,35 +2,78 @@ package estefan;
 
 import java.util.StringTokenizer;
 
+
+
 public class Createur {
 	
 	
-	public static String forme;
-	public static String socket;
+	private static String forme;
+	private static String socket[];
+	private static String str;
+	private static int i;
+	private static int registre;
 	
 	public Createur(){
 		
 		forme= "";
-		socket= "";
+		
 				
 	}
 	
 	public static void setCreateur(String str){
 		
-		socket = str;
+		forme = str;
+		
 		
 	}
 	
-	public  String getForme (){	
+	public static Forme getForme(String forme){
 		
-//	StringTokenizer  socket = new StringTokenizer();
-//	
-//	while(tokenizer.hasmoretoken()){
-//				String forme =  tokenizer.nexttoken();
-//			System.out.println(forme);
-//	}
-//	
-	return forme;
+		Forme forme1 =  null;
+		
+		 StringTokenizer str = new StringTokenizer(forme);
+		 
+	     while (str.hasMoreTokens()) {
+	    	 i++;
+	         
+	         socket[i]= str.nextToken();
+	        
+	         
+	     }
+	 
+       
+      	 registre = Integer.parseInt( socket [1]);
+        	 
+	     if (socket[2]== "<CARRE>")
+	     {
+	    	forme1= new Carre(Integer.parseInt( socket [3]),Integer.parseInt( socket [4]),Integer.parseInt( socket [5]),Integer.parseInt( socket [6])); 
+	     }
+	     else if (socket[2]== "<RECTANGLE>")
+	     {
+	    	forme1= new Rectangle(Integer.parseInt( socket [3]),Integer.parseInt( socket [4]),Integer.parseInt( socket [5]),Integer.parseInt( socket [6]));
+	     }
+	     else if (socket[2]== "<CERCLE>")
+	     {
+	    	forme1= new Cercle(Integer.parseInt( socket [3]),Integer.parseInt( socket [4]),Integer.parseInt( socket [5]));
+	     }
+	     else if (socket[2]== "<OVAL>")
+	     {
+	    	 forme1= new Oval(Integer.parseInt( socket [3]),Integer.parseInt( socket [4]),Integer.parseInt( socket [5]),Integer.parseInt( socket [6]));
+	     
+	     }  else if (socket[2]== "<LIGNE>")
+	     {
+	    	 forme1= new Ligne(Integer.parseInt( socket [3]),Integer.parseInt( socket [4]),Integer.parseInt( socket [5]),Integer.parseInt( socket [6]));
+	      
+	     }
+	     else {i=0;}
+           
+                  	
+      return forme1;
+      
+		
+	     
+	
+	
 			
 	}
 }
